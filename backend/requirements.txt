@@ -7,6 +7,7 @@ numpy
 requests
 rank-bm25
 nltk
+gunicorn
 
 # Optional (advanced experiment only -- see train_models_transformer_experiment.py):
 # sentence-transformers
