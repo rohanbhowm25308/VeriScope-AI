@@ -1,7 +1,7 @@
 // ClaimGuard frontend application logic.
 // Talks to the Flask API at the same origin (see backend/app.py).
 
-const API = 'https://veriscope-ai.onrender.com';
+const API = 'https://veriscope-ai-3eyf.onrender.com/';
 let currentContext = '';
 let lastClaims = [];
 let lastSourceLabel = 'Pasted text';
