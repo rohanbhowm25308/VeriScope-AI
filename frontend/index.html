@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClaimGuard — AI Claim Verification &amp; Evidence Auditor</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="app-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span class="hex-icon">⬡</span></div>
+      <div class="brand-text">
+        <div class="brand-title">ClaimGuard</div>
+        <div class="brand-sub">AI Claim Verification &amp; Evidence Auditor</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-view="analyze">
+        <span class="nav-ico">◈</span> Analyze
+      </button>
+      <button class="nav-item" data-view="dashboard">
+        <span class="nav-ico">▤</span> Dashboard
+      </button>
+      <button class="nav-item" data-view="queue">
+        <span class="nav-ico">⚑</span> Review Queue
+        <span class="nav-badge" id="queue-badge">0</span>
+      </button>
+      <button class="nav-item" data-view="history">
+        <span class="nav-ico">◷</span> History
+      </button>
+      <button class="nav-item" data-view="lab">
+        <span class="nav-ico">⚗</span> Model Lab
+      </button>
+      <button class="nav-item" data-view="research">
+        <span class="nav-ico">🔬</span> Research Analytics
+      </button>
+      <button class="nav-item" data-view="about">
+        <span class="nav-ico">ℹ</span> About the Research
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="threshold-box">
+        <label for="threshold-slider">Verification Sensitivity</label>
+        <input type="range" id="threshold-slider" min="0.3" max="0.75" step="0.05" value="0.5">
+        <div class="threshold-labels">
+          <span>Strict</span><span id="threshold-value">Balanced</span><span>Research</span>
+        </div>
+      </div>
+      <div class="groq-status" id="groq-status">
+        <span class="dot"></span> <span id="groq-status-text">Checking AI status…</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- ---------- ANALYZE VIEW ---------- -->
+    <section class="view active" id="view-analyze">
+      <header class="view-header">
+        <h1>Claim Verification Console</h1>
+        <p>Paste a claim, paragraph, or article. ClaimGuard extracts claims, decomposes compound
+           statements, and flags which ones cannot responsibly be accepted without external evidence.</p>
+      </header>
+
+      <div class="pipeline-strip" id="pipeline-strip">
+        <div class="pipeline-stage" data-stage="extract"><span class="stage-dot"></span>Extracting claims</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-stage" data-stage="context"><span class="stage-dot"></span>Checking context</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-stage" data-stage="evidence"><span class="stage-dot"></span>Retrieving evidence</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-stage" data-stage="conflict"><span class="stage-dot"></span>Detecting conflict</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-stage" data-stage="review"><span class="stage-dot"></span>Human review</div>
+      </div>
+
+      <div class="input-grid">
+        <div class="card input-card">
+          <div class="card-label">Text to Analyze</div>
+          <textarea id="input-text" placeholder="Paste a claim, paragraph, or full article here…
+
+Example: &quot;India has 28 states and will become the world's largest economy by 2030. The vaccine is 95 percent effective against the virus.&quot;"></textarea>
+          <div class="input-tools">
+            <label class="file-btn">
+              📎 Upload .txt file
+              <input type="file" id="file-input" accept=".txt" hidden>
+            </label>
+            <span id="file-name" class="file-name"></span>
+          </div>
+        </div>
+
+        <div class="card input-card">
+          <div class="card-label">Available Context <span class="optional">(optional — evidence source)</span></div>
+          <textarea id="input-context" placeholder="Paste any supporting document, article, or source text here. ClaimGuard will check whether it actually supports each claim, and use it for evidence retrieval."></textarea>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <label class="checkbox-row">
+          <input type="checkbox" id="decompose-toggle" checked> Decompose compound claims
+        </label>
+        <button class="btn btn-primary" id="analyze-btn">
+          <span class="btn-ico">⟡</span> Run ClaimGuard Analysis
+        </button>
+      </div>
+
+      <div id="loading-indicator" class="loading-status hidden">
+        <div class="status-line" data-status="extract"><span class="status-icon">○</span> Extracting claims</div>
+        <div class="status-line" data-status="linguistic"><span class="status-icon">○</span> Analyzing linguistic features</div>
+        <div class="status-line" data-status="context"><span class="status-icon">○</span> Checking context sufficiency</div>
+        <div class="status-line" data-status="uncertainty"><span class="status-icon">○</span> Estimating uncertainty</div>
+        <div class="status-line" data-status="evidence"><span class="status-icon">○</span> Retrieving evidence</div>
+        <div class="status-line" data-status="recommend"><span class="status-icon">○</span> Generating verification recommendation</div>
+      </div>
+
+      <div id="results-area" class="results-area hidden">
+
+        <div class="doc-score-card card">
+          <div class="doc-score-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-bg"/>
+              <circle cx="60" cy="60" r="52" class="ring-fg" id="doc-score-ring"/>
+            </svg>
+            <div class="doc-score-num" id="doc-score-num">--</div>
+          </div>
+          <div class="doc-score-info">
+            <div class="doc-score-title">Document Verifiability Score</div>
+            <div class="doc-score-band" id="doc-score-band">—</div>
+            <div class="doc-score-desc">How much of this text can be responsibly assessed from
+              available context and linguistic signal. This is <b>not</b> a truth score.</div>
+          </div>
+          <div class="doc-score-actions">
+            <button class="btn btn-ghost" id="report-btn">📄 Generate Report</button>
+          </div>
+        </div>
+
+        <div class="summary-strip" id="summary-strip"></div>
+
+        <div class="highlighted-text-wrap card" id="highlighted-wrap">
+          <div class="card-label">Highlighted Source Text</div>
+          <div id="highlighted-text" class="highlighted-text"></div>
+        </div>
+
+        <div class="card-label section-label">Claim-by-Claim Analysis</div>
+        <div id="claims-list" class="claims-list"></div>
+      </div>
+    </section>
+
+    <!-- ---------- DASHBOARD VIEW ---------- -->
+    <section class="view" id="view-dashboard">
+      <header class="view-header">
+        <h1>Verification Dashboard</h1>
+        <p>Aggregate statistics across every claim ClaimGuard has analyzed this session.</p>
+      </header>
+      <div class="dash-grid">
+        <div class="card stat-card">
+          <div class="stat-num" id="stat-total">0</div>
+          <div class="stat-label">Total Claims Analyzed</div>
+        </div>
+        <div class="card stat-card sufficient">
+          <div class="stat-num" id="stat-sufficient">0</div>
+          <div class="stat-label">🟢 Context Sufficient</div>
+        </div>
+        <div class="card stat-card needs">
+          <div class="stat-num" id="stat-needs">0</div>
+          <div class="stat-label">🟡 Needs Verification</div>
+        </div>
+        <div class="card stat-card high">
+          <div class="stat-num" id="stat-high">0</div>
+          <div class="stat-label">🔴 High Priority</div>
+        </div>
+      </div>
+      <div class="dash-charts">
+        <div class="card chart-card"><div class="card-label">Verification Status</div><canvas id="chart-verdict"></canvas></div>
+        <div class="card chart-card"><div class="card-label">Claim Categories</div><canvas id="chart-category"></canvas></div>
+        <div class="card chart-card"><div class="card-label">Claim Types</div><canvas id="chart-type"></canvas></div>
+      </div>
+    </section>
+
+    <!-- ---------- REVIEW QUEUE VIEW ---------- -->
+    <section class="view" id="view-queue">
+      <header class="view-header">
+        <h1>Priority-Based Human Review Queue</h1>
+        <p>Claims flagged as high-risk, time-sensitive, low-confidence, or evidence-conflicting are routed here automatically.</p>
+      </header>
+      <div id="queue-list" class="queue-list"></div>
+    </section>
+
+    <!-- ---------- HISTORY VIEW ---------- -->
+    <section class="view" id="view-history">
+      <header class="view-header">
+        <h1>Claim History</h1>
+        <p>Every claim analyzed this session, most recent first.</p>
+      </header>
+      <div class="history-table-wrap card">
+        <table class="history-table">
+          <thead><tr><th>Date</th><th>Claim</th><th>Verdict</th><th>Risk</th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ---------- MODEL LAB VIEW ---------- -->
+    <section class="view" id="view-lab">
+      <header class="view-header">
+        <h1>Model Comparison Laboratory</h1>
+        <p>Baseline experiment results: four classical ML models trained on the same
+           TF-IDF + engineered-feature representation of the seed claim dataset.</p>
+      </header>
+      <div class="card" id="lab-summary"></div>
+      <div class="card table-card">
+        <table class="lab-table" id="lab-table">
+          <thead><tr><th>Model</th><th>Test Accuracy</th><th>Test Precision (macro)</th><th>Test Recall (macro)</th><th>Test F1 (macro)</th><th>5-fold CV F1</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="card-label section-label">Error Analysis (best model, held-out test set)</div>
+      <div id="error-list" class="error-list"></div>
+    </section>
+
+    <!-- ---------- RESEARCH ANALYTICS VIEW ---------- -->
+    <section class="view" id="view-research">
+      <header class="view-header">
+        <h1>Research Analytics Dashboard</h1>
+        <p>AI-behavior metrics computed from real stored history and reviewer feedback, plus
+           feature importance from the trained model — for the presentation and write-up.</p>
+      </header>
+      <div class="dash-grid" id="research-stat-grid"></div>
+      <div class="card" id="feature-importance-card">
+        <div class="card-label">Feature Importance (best model)</div>
+        <div id="feature-importance-body"></div>
+      </div>
+      <div class="card" id="retrieval-benchmark-card" style="margin-top:16px;">
+        <div class="card-label">Retrieval Method Benchmark (hand-labeled, n=20)</div>
+        <div id="retrieval-benchmark-body"></div>
+      </div>
+      <div class="action-row" style="margin-top:16px;justify-content:flex-start;">
+        <button class="btn btn-ghost" id="export-feedback-btn">📤 Export Reviewed Cases for Retraining</button>
+      </div>
+    </section>
+
+    <!-- ---------- ABOUT VIEW ---------- -->
+    <section class="view" id="view-about">
+      <header class="view-header">
+        <h1>About This Research Prototype</h1>
+        <p>Learn Depth · Problem ML-T2-061 · Detecting Claims That Require External Verification</p>
+      </header>
+      <div class="card about-card">
+        <h3>Central Research Question</h3>
+        <p>"Can an NLP system recognize when a claim cannot responsibly be accepted without external evidence?"</p>
+        <h3>What this system does NOT do</h3>
+        <p>It does not classify claims as true or false. It classifies whether the claim can be
+           <i>responsibly accepted</i> given the available context, and routes uncertain or
+           high-stakes claims toward evidence retrieval and human review.</p>
+        <h3>Pipeline</h3>
+        <p>Text → sentence segmentation → claim filtering → compound decomposition → linguistic
+           feature engineering → hybrid ML+rule verdict → context-sufficiency &amp; risk scoring →
+           evidence retrieval (TF-IDF) → conflict detection → human review routing.</p>
+        <h3>Datasets</h3>
+        <p><b>Real, human-annotated data:</b> ~17,600 sentences from the CLEF CheckThat! 2019 shared task
+           (US presidential debates/speeches, 2016–2019), professionally fact-checked and labeled
+           check-worthy or not. Trains a dedicated binary check-worthiness model, whose probability
+           output is blended into the fine-grained classifier as one input feature.</p>
+        <p><b>Synthetic seed set (175 examples):</b> weakly-labeled, programmatically-authored claims
+           covering the difficult cases the problem statement names (compound, temporal, conditional,
+           implicit). Trains the fine-grained context_sufficient / needs_verification / high_priority
+           classifier via 5-fold cross-validation. See <code>backend/data/build_seed_dataset_v2.py</code>.</p>
+        <h3>Baseline model</h3>
+        <p id="about-model-line">Loading model info…</p>
+        <h3>Known limitations</h3>
+        <ul>
+          <li>The 3-way seed dataset (n≈175) is still weakly-labeled and programmatically generated,
+              though now roughly balanced across labels and blended with a real-data signal (see above)
+              — a documented placeholder for a fully human-annotated 3-way corpus.</li>
+          <li>Local evidence retrieval uses BM25 (with stemming) over whatever context the user
+              supplies. An optional web-search fallback via Groq's <code>groq/compound</code> model
+              (built-in, citation-backed search) is available when a GROQ_API_KEY is configured.</li>
+          <li>Claim extraction uses lightweight regex/rule-based sentence and clause splitting rather
+              than a dependency parser, to stay dependency-light and fully explainable.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============ CLAIM DETAIL MODAL ============ -->
+<div id="claim-modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ============ CHAT WIDGET ============ -->
+<div class="chat-widget" id="chat-widget">
+  <button class="chat-toggle" id="chat-toggle">💬</button>
+  <div class="chat-panel hidden" id="chat-panel">
+    <div class="chat-header">ClaimGuard Assistant <span id="chat-groq-badge" class="chat-badge"></span></div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg bot">Ask me about a claim, verification strategy, or how ClaimGuard's
+        scoring works. I won't declare anything true or false — I'll help you figure out what to check.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask a question…">
+      <button id="chat-send">➤</button>
+    </div>
+  </div>
+</div>
+
+<script src="bg.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

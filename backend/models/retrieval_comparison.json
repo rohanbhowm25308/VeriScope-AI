@@ -1,0 +1,23 @@
+{
+  "results": {
+    "TF-IDF+cosine": {
+      "precision_at_k": 0.95,
+      "recall_at_k": 0.95,
+      "k": 3,
+      "n_cases": 20
+    },
+    "BM25": {
+      "precision_at_k": 0.95,
+      "recall_at_k": 0.95,
+      "k": 3,
+      "n_cases": 20
+    },
+    "LSA-semantic-proxy": {
+      "precision_at_k": 0.95,
+      "recall_at_k": 0.95,
+      "k": 3,
+      "n_cases": 20
+    }
+  },
+  "note": "Hand-labeled benchmark (n=20), not a large public IR dataset -- see eval_retrieval_methods.py for the exact cases and methodology."
+}

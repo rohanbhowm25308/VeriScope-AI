@@ -1,0 +1,152 @@
+{
+  "context_sufficient": [
+    {
+      "term": "stable_fact_hint_count",
+      "weight": 1.105
+    },
+    {
+      "term": "sides",
+      "weight": 0.9727
+    },
+    {
+      "term": "step",
+      "weight": 0.865
+    },
+    {
+      "term": "reduces",
+      "weight": 0.7924
+    },
+    {
+      "term": "new",
+      "weight": -0.7843
+    },
+    {
+      "term": "ocean",
+      "weight": 0.7748
+    },
+    {
+      "term": "human",
+      "weight": 0.7353
+    },
+    {
+      "term": "africa",
+      "weight": 0.6934
+    },
+    {
+      "term": "river",
+      "weight": 0.6707
+    },
+    {
+      "term": "future_marker_count",
+      "weight": -0.6652
+    },
+    {
+      "term": "energy",
+      "weight": 0.6472
+    },
+    {
+      "term": "implicit_causal_count",
+      "weight": -0.6448
+    }
+  ],
+  "high_priority": [
+    {
+      "term": "future_marker_count",
+      "weight": 1.2092
+    },
+    {
+      "term": "effects",
+      "weight": 0.8249
+    },
+    {
+      "term": "eliminates need",
+      "weight": 0.7986
+    },
+    {
+      "term": "eliminates",
+      "weight": 0.7986
+    },
+    {
+      "term": "funding secured",
+      "weight": -0.7985
+    },
+    {
+      "term": "small",
+      "weight": 0.7552
+    },
+    {
+      "term": "rate",
+      "weight": 0.7244
+    },
+    {
+      "term": "is_health",
+      "weight": 0.714
+    },
+    {
+      "term": "n_words",
+      "weight": 0.7115
+    },
+    {
+      "term": "percent",
+      "weight": 0.6415
+    },
+    {
+      "term": "superlative_count",
+      "weight": 0.6097
+    },
+    {
+      "term": "rose",
+      "weight": 0.597
+    }
+  ],
+  "needs_verification": [
+    {
+      "term": "present_temporal_count",
+      "weight": 0.975
+    },
+    {
+      "term": "sides",
+      "weight": -0.906
+    },
+    {
+      "term": "stable_fact_hint_count",
+      "weight": -0.8632
+    },
+    {
+      "term": "superlative_count",
+      "weight": -0.8604
+    },
+    {
+      "term": "city",
+      "weight": 0.8534
+    },
+    {
+      "term": "future_marker_count",
+      "weight": -0.7901
+    },
+    {
+      "term": "effects",
+      "weight": -0.7364
+    },
+    {
+      "term": "new",
+      "weight": 0.7348
+    },
+    {
+      "term": "reported",
+      "weight": 0.722
+    },
+    {
+      "term": "funding secured",
+      "weight": 0.6925
+    },
+    {
+      "term": "has_conjunction_split",
+      "weight": 0.6865
+    },
+    {
+      "term": "interface",
+      "weight": 0.6664
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "n_errors": 6,
+  "errors": [
+    {
+      "claim": "Vaccines work by training the immune system to recognize pathogens.",
+      "true_label": "context_sufficient",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "A budget deficit occurs when spending exceeds revenue.",
+      "true_label": "context_sufficient",
+      "predicted_label": "high_priority",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "The school's graduation rate rose by 5 percent this year.",
+      "true_label": "needs_verification",
+      "predicted_label": "high_priority",
+      "error_category": "Numerical claim error (statistical stakes misjudged)"
+    },
+    {
+      "claim": "The stock market consists of exchanges where shares are traded.",
+      "true_label": "context_sufficient",
+      "predicted_label": "high_priority",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "Light travels faster than sound.",
+      "true_label": "context_sufficient",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "If elected, the candidate says she would lower taxes.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Conditional/hedged language misread"
+    }
+  ]
+}

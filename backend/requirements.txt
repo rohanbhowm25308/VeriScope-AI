@@ -1,0 +1,12 @@
+Flask==3.1.3
+flask-cors==5.0.0
+python-dotenv==1.0.1
+scikit-learn==1.8.0
+scipy
+numpy
+requests
+rank-bm25
+nltk
+
+# Optional (advanced experiment only -- see train_models_transformer_experiment.py):
+# sentence-transformers

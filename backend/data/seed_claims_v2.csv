@@ -1,0 +1,176 @@
+claim,category,label
+Average rainfall increased by 20 percent this decade.,environmental,needs_verification
+"The clinical trial enrolled 3,000 participants.",health,needs_verification
+The company will launch its new product next month.,corporate,high_priority
+The local hospital has added twenty new beds.,health,needs_verification
+The rainforest lost 10 percent of its cover this decade.,environmental,high_priority
+The stock market consists of exchanges where shares are traded.,financial,context_sufficient
+The city's mayor was re-elected for a third term.,political,needs_verification
+Sleep is essential for physical and mental recovery.,health,context_sufficient
+This treatment will reduce cancer mortality by 30 percent by 2030.,health,high_priority
+The team's captain is the league's top scorer this season.,person,needs_verification
+A corporation is a legal entity separate from its owners.,corporate,context_sufficient
+The hospital reduced patient wait times by 30 percent.,health,high_priority
+The startup raised 50 million dollars in its latest funding round.,financial,high_priority
+Germany is located in Europe.,geography,context_sufficient
+The professor is currently the department chair.,person,needs_verification
+The new therapy has no side effects.,health,high_priority
+"The factory produces 10,000 units per day.",corporate,needs_verification
+The farmers reported a better harvest this year.,statistical,needs_verification
+The school district revised its curriculum this year.,political,needs_verification
+India has 28 states and will become the world's largest economy by 2030.,political,high_priority
+The software update fixed several bugs.,corporate,needs_verification
+Egypt is located in Africa.,geography,context_sufficient
+The country's GDP grew by 6 percent last year.,financial,high_priority
+The Nile is a river in Africa.,geography,context_sufficient
+The team signed a new player this season.,person,needs_verification
+"If demand continues to rise, prices could increase further.",financial,needs_verification
+"India launched a new satellite in 2025 and the satellite weighs 5,000 kilograms.",scientific,needs_verification
+The surgery has a 99 percent success rate.,health,high_priority
+"The satellite weighs 5,000 kilograms.",scientific,needs_verification
+"A balanced diet includes proteins, carbohydrates, and fats.",health,context_sufficient
+The clinic introduced a new appointment booking system.,health,needs_verification
+Air quality in the city improved marginally this year.,environmental,needs_verification
+The freezing point of water is 0 degrees Celsius.,scientific,context_sufficient
+The country will hold elections within six months.,political,high_priority
+The retailer's online sales grew by 25 percent this quarter.,financial,needs_verification
+The new smartphone model has a larger battery than its predecessor.,corporate,needs_verification
+He currently serves as the finance minister.,political,needs_verification
+The glacier has retreated more than any other on record.,environmental,high_priority
+Regular exercise reduces the risk of heart disease.,health,context_sufficient
+The city's crime rate dropped by 15 percent this year.,statistical,high_priority
+The startup raised new funding and plans to double its team next year.,corporate,high_priority
+"The speed of light is approximately 300,000 kilometers per second.",scientific,context_sufficient
+Tesla is the world's most valuable automobile company.,corporate,high_priority
+Brazil is located in South America.,geography,context_sufficient
+The factory hired additional staff for the holiday season.,corporate,needs_verification
+Latticework Robotics launched a redesigned website this year.,corporate,needs_verification
+Interest rates will increase next quarter.,financial,high_priority
+The airline carried 2 million passengers last month.,statistical,needs_verification
+The drug reverses the effects of aging.,health,high_priority
+The vaccine will be distributed to the public by next spring.,health,high_priority
+"If the treaty is signed, tensions may ease in the region.",political,needs_verification
+Solstice Media relocated its headquarters this year.,corporate,needs_verification
+The city's population grew slightly this year.,statistical,needs_verification
+Mount Everest is the tallest mountain above sea level.,geography,context_sufficient
+Verdant Foods upgraded its customer support system this year.,corporate,needs_verification
+The restaurant chain opened three new locations.,corporate,needs_verification
+The data breach eroded customer trust in the platform.,corporate,high_priority
+The hospital reported zero infections last month.,health,needs_verification
+The scandal ended the senator's political career.,political,high_priority
+Acme Corp upgraded its customer support system this year.,corporate,needs_verification
+"If the bill passes, small businesses could face new tax rules.",political,high_priority
+The government will introduce a new AI policy next year.,political,high_priority
+A square has four equal sides.,scientific,context_sufficient
+The research team observed unusual migration patterns.,scientific,needs_verification
+World War II ended in 1945.,political,context_sufficient
+The Pacific Ocean is the largest ocean on Earth.,geography,context_sufficient
+The vaccine is 95 percent effective against the virus.,health,high_priority
+The bank updated its mobile app interface.,financial,needs_verification
+Carbon emissions in the region fell for the first time in a decade.,environmental,high_priority
+The treatment is available at no cost to patients.,health,needs_verification
+The airline will add five new international routes next year.,corporate,high_priority
+Renewable energy comes from naturally replenished sources.,environmental,context_sufficient
+The country's exports increased by 18 percent last year.,financial,high_priority
+The outage cost the company millions in lost sales.,financial,high_priority
+The company expects to double its workforce next year.,corporate,high_priority
+Nexora Technologies relocated its headquarters this year.,corporate,needs_verification
+The team will win the championship next season.,person,high_priority
+Light travels faster than sound.,scientific,context_sufficient
+The company will report record profits next quarter.,financial,high_priority
+The city will complete the new metro line by 2027.,political,high_priority
+The supplement eliminates the need for prescribed medication.,health,high_priority
+Fernbrook Health launched a redesigned website this year.,corporate,needs_verification
+The company's decision clearly destroyed investor confidence.,corporate,high_priority
+The bridge renovation is currently underway.,corporate,needs_verification
+"The company increased its revenue by 40 percent in 2025 and hired 10,000 employees.",corporate,high_priority
+Recycling rates improved slightly in the region.,environmental,needs_verification
+The moon orbits the Earth.,scientific,context_sufficient
+The library extended its weekend hours.,corporate,needs_verification
+The strike paralyzed the city's public transport system.,corporate,needs_verification
+"If approved, the vaccine could reach markets within a year.",health,high_priority
+The city's water usage dropped by 12 percent this summer.,environmental,needs_verification
+A leap year has 366 days.,scientific,context_sufficient
+The country will become carbon neutral by 2050.,environmental,high_priority
+Smoking increases the risk of lung cancer.,health,context_sufficient
+"If the merger goes through, thousands of jobs could be affected.",corporate,high_priority
+The new diet cures diabetes within weeks.,health,high_priority
+Vietnam is located in Asia.,geography,context_sufficient
+The layoffs devastated the local economy.,financial,high_priority
+A merger occurs when two companies combine into one.,corporate,context_sufficient
+Deforestation reduces the number of trees in a region.,environmental,context_sufficient
+The capital of Japan is Tokyo.,geography,context_sufficient
+An algorithm is a step-by-step procedure for solving a problem.,scientific,context_sufficient
+Vaccines work by training the immune system to recognize pathogens.,health,context_sufficient
+The company increased its revenue by 40 percent in 2025.,financial,high_priority
+Voter turnout increased by 9 percent compared to the previous election.,political,high_priority
+Photosynthesis converts sunlight into chemical energy in plants.,scientific,context_sufficient
+"If elected, the candidate says she would lower taxes.",political,high_priority
+The airport terminal underwent minor renovations.,corporate,needs_verification
+The vaccine passed clinical trials and will be available by next spring.,health,high_priority
+The company reported a profit last quarter.,corporate,needs_verification
+She is the CEO of the company.,person,needs_verification
+The company's stock price rose by 8 percent yesterday.,financial,high_priority
+He is the youngest CEO in the company's history.,corporate,needs_verification
+The university published a new research paper on climate patterns.,scientific,needs_verification
+A triangle has three sides.,scientific,context_sufficient
+The Sahara is a desert in Africa.,geography,context_sufficient
+The new regulation crushed small farmers' profits.,financial,high_priority
+India has 28 states and 8 union territories.,geography,context_sufficient
+Unemployment fell by 2 percent last month.,statistical,high_priority
+"If interest rates increase, housing prices could fall.",financial,needs_verification
+The Earth orbits the Sun once every 365.25 days.,scientific,context_sufficient
+Python is a programming language.,corporate,context_sufficient
+Kenya is located in Africa.,geography,context_sufficient
+A budget deficit occurs when spending exceeds revenue.,financial,context_sufficient
+The stock market will rise sharply next quarter.,financial,high_priority
+The Great Wall of China is located in China.,geography,context_sufficient
+Norway is located in Europe.,geography,context_sufficient
+Democracy is a system of government by the people.,political,context_sufficient
+The Amazon River flows through South America.,geography,context_sufficient
+The actor is the highest-paid performer in the industry this year.,person,high_priority
+The company's new office reduced its carbon footprint.,environmental,needs_verification
+The country signed the treaty and tensions have already begun to ease.,political,needs_verification
+The museum's new exhibit features contemporary art.,corporate,needs_verification
+Bluepeak Industries upgraded its customer support system this year.,corporate,needs_verification
+The city council approved a new park design.,political,needs_verification
+The controversy split the party into two factions.,political,needs_verification
+India's GDP will surpass the United States by 2030.,financial,high_priority
+The nonprofit raised funds for a new community center.,corporate,needs_verification
+The new drug will be approved by regulators next year.,health,high_priority
+A century has 100 years.,scientific,context_sufficient
+Water boils at 100 degrees Celsius at sea level.,scientific,context_sufficient
+"If the drought continues, crop yields may decline sharply.",environmental,high_priority
+The city introduced a new recycling program.,environmental,needs_verification
+The regional airline added a new domestic route.,corporate,needs_verification
+"If the trend continues, the lake could dry up within a decade.",environmental,high_priority
+Peru is located in South America.,geography,context_sufficient
+The startup will go public within two years.,corporate,high_priority
+Ironclad Logistics relocated its headquarters this year.,corporate,needs_verification
+The bridge will open to traffic by the end of next year.,corporate,high_priority
+The United Nations was founded in 1945.,political,context_sufficient
+The startup recently moved to a larger office.,corporate,needs_verification
+Australia is located in Oceania.,geography,context_sufficient
+The French Revolution began in 1789.,political,context_sufficient
+The Constitution of India was adopted in 1949.,political,context_sufficient
+A hexagon has six sides.,scientific,context_sufficient
+The new policy has already damaged small businesses.,political,high_priority
+The human heart has four chambers.,scientific,context_sufficient
+Recycling reduces the amount of waste sent to landfills.,environmental,context_sufficient
+The city built a new stadium and it will host the finals next year.,corporate,needs_verification
+A new species of frog will be discovered in the region soon.,environmental,high_priority
+The school's graduation rate rose by 5 percent this year.,statistical,needs_verification
+The senator is the longest-serving member of the committee.,political,needs_verification
+Oxygen is required for human respiration.,scientific,context_sufficient
+Global sea levels rose by 3.4 millimeters last year.,environmental,high_priority
+The product recall ruined the brand's reputation overnight.,corporate,needs_verification
+Canada is located in North America.,geography,context_sufficient
+Inflation refers to a general rise in prices over time.,financial,context_sufficient
+The film festival added a new category this year.,corporate,needs_verification
+The population will double by 2060.,statistical,high_priority
+The human body has 206 bones in adulthood.,scientific,context_sufficient
+Thailand is located in Asia.,geography,context_sufficient
+The clinic's new program improved patient recovery times.,health,needs_verification
+This is the hottest year ever recorded on Earth.,environmental,high_priority
+The region will experience severe drought conditions next summer.,environmental,high_priority
+"If funding is secured, the project may begin next year.",corporate,needs_verification
