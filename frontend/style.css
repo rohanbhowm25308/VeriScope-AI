@@ -427,3 +427,28 @@ textarea::placeholder{color:var(--text-dim);}
 .fi-fill.pos{background:var(--cyan);}
 .fi-fill.neg{background:var(--red);}
 .fi-weight{font-size:10.5px;color:var(--text-dim);width:44px;text-align:right;font-family:var(--font-mono);}
+
+/* ---------------- footer ---------------- */
+/* ---------------- footer (fixed to viewport bottom, compact single line) ---------------- */
+.app-footer{
+  position:fixed;bottom:0;left:272px;right:0;z-index:30;
+  background:rgba(9,14,26,.92);backdrop-filter:blur(8px);
+  border-top:1px solid var(--panel-border);
+  padding:8px 20px;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+}
+.footer-build{font-size:11px;color:var(--text-dim);}
+.footer-divider{color:var(--panel-border-hover);font-size:11px;}
+.footer-credit{font-size:11.5px;color:var(--text-mid);}
+.footer-credit b{color:var(--cyan);font-weight:600;}
+.footer-socials{display:flex;gap:10px;}
+.footer-socials a{color:var(--text-dim);transition:.15s;display:flex;}
+.footer-socials a svg{width:14px;height:14px;}
+.footer-socials a:hover{color:var(--cyan);transform:translateY(-1px);}
+
+/* keep page content from being hidden behind the fixed footer
+   (.main already has 80px bottom padding, which is enough clearance) */
+
+@media (max-width:980px){
+  .app-footer{left:0;}
+}
