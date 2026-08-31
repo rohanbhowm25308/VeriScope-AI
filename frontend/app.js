@@ -8,7 +8,7 @@
 // - Netlify (a genuinely separate origin from the backend) -> talk to the
 //   deployed Render backend directly via its full URL.
 // Only the Netlify case needs RENDER_API_URL filled in below.
-const RENDER_API_URL = 'https://YOUR-RENDER-APP.onrender.com';
+const RENDER_API_URL = 'https://veriscope-ai-3eyf.onrender.com';
 const IS_SEPARATE_FRONTEND = window.location.hostname.endsWith('netlify.app');
 const API = IS_SEPARATE_FRONTEND ? RENDER_API_URL : '';
 let currentContext = '';
@@ -780,5 +780,5 @@ function appendChatMsg(role, text) {
   const box = $('#chat-messages');
   box.appendChild(div);
   box.scrollTop = box.scrollHeight;
-  
+
 }
