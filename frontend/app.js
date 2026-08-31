@@ -780,4 +780,5 @@ function appendChatMsg(role, text) {
   const box = $('#chat-messages');
   box.appendChild(div);
   box.scrollTop = box.scrollHeight;
+  
 }
