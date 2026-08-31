@@ -2,16 +2,15 @@
 // Talks to the Flask API at the same origin (see backend/app.py).
 
 // Auto-detects environment so you never have to manually toggle this:
-// - localhost/127.0.0.1 (local dev via `python3 app.py`) -> talk to the
-//   same origin, since Flask is serving both frontend and backend there.
-// - anywhere else (e.g. the Netlify-hosted build) -> talk to the deployed
-//   Render backend directly.
-// IMPORTANT: replace the placeholder below with your actual Render URL
-// once you have it -- until then, the deployed (non-localhost) site will
-// still fail, but local testing works immediately either way.
+// - Same-origin hosting (localhost/127.0.0.1 during local dev, OR the
+//   Render URL itself, since Flask serves frontend+backend together there)
+//   -> use a relative path, talking to whatever origin served this page.
+// - Netlify (a genuinely separate origin from the backend) -> talk to the
+//   deployed Render backend directly via its full URL.
+// Only the Netlify case needs RENDER_API_URL filled in below.
 const RENDER_API_URL = 'https://YOUR-RENDER-APP.onrender.com';
-const IS_LOCAL = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-const API = IS_LOCAL ? '' : RENDER_API_URL;
+const IS_SEPARATE_FRONTEND = window.location.hostname.endsWith('netlify.app');
+const API = IS_SEPARATE_FRONTEND ? RENDER_API_URL : '';
 let currentContext = '';
 let lastClaims = [];
 let lastSourceLabel = 'Pasted text';
