@@ -1,7 +1,17 @@
-// ClaimGuard frontend application logic.
+// VeriScope AI frontend application logic.
 // Talks to the Flask API at the same origin (see backend/app.py).
 
-const API = 'https://veriscope-ai-3eyf.onrender.com/';
+// Auto-detects environment so you never have to manually toggle this:
+// - localhost/127.0.0.1 (local dev via `python3 app.py`) -> talk to the
+//   same origin, since Flask is serving both frontend and backend there.
+// - anywhere else (e.g. the Netlify-hosted build) -> talk to the deployed
+//   Render backend directly.
+// IMPORTANT: replace the placeholder below with your actual Render URL
+// once you have it -- until then, the deployed (non-localhost) site will
+// still fail, but local testing works immediately either way.
+const RENDER_API_URL = 'https://YOUR-RENDER-APP.onrender.com';
+const IS_LOCAL = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+const API = IS_LOCAL ? '' : RENDER_API_URL;
 let currentContext = '';
 let lastClaims = [];
 let lastSourceLabel = 'Pasted text';

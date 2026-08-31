@@ -1,7 +1,7 @@
 """
 app.py
 ------
-ClaimGuard Flask API. Run with:
+VeriScope AI Flask API. Run with:
     python3 app.py
 Serves the API on http://localhost:5000 and the frontend (static files) at
 http://localhost:5000/.
@@ -14,6 +14,7 @@ import io
 from pathlib import Path
 
 from flask import Flask, request, jsonify, send_from_directory, Response
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -33,6 +34,16 @@ HERE = Path(__file__).parent
 FRONTEND_DIR = HERE.parent / "frontend"
 
 app = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
+
+# CORS: needed once the frontend is hosted on a different origin than the
+# API (e.g. Netlify frontend + Render backend). ALLOWED_ORIGINS is a comma-
+# separated list read from an env var so you don't have to hardcode a
+# domain into the source -- set it to your Netlify URL in Render's
+# environment settings. Defaults to "*" (open) for local/dev convenience;
+# tighten this once you know your real Netlify URL.
+_allowed_origins = os.environ.get("ALLOWED_ORIGINS", "*")
+CORS(app, resources={r"/api/*": {"origins": _allowed_origins.split(",") if _allowed_origins != "*" else "*"}})
+
 storage.init_db()
 
 
@@ -305,4 +316,5 @@ def api_ai_review():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host="0.0.0.0", port=port, debug=debug)

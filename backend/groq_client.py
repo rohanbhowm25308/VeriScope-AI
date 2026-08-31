@@ -22,7 +22,7 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 DEFAULT_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 SYSTEM_PROMPT = (
-    "You are the assistant embedded inside ClaimGuard, a claim-auditing research "
+    "You are the assistant embedded inside VeriScope AI, a claim-auditing research "
     "tool. Your job is to help the user reason about whether a factual claim "
     "requires external verification -- NOT to declare claims true or false. "
     "When asked to review a claim, comment on: what would need to be checked, "
