@@ -1,163 +1,711 @@
-# VeriScope AI
-### AI-Powered Claim Verification & Evidence Auditor
-**Learn Depth — Problem ML-T2-061:** *Detecting Claims That Require External Verification*
+#  VeriScope AI
 
-> **Central research question:** *Can an NLP system recognize when a claim cannot responsibly
-> be accepted without external evidence?*
+## AI-Powered Claim Verification & Evidence Auditor
 
-VeriScope AI is **not** a fake-news / true-or-false classifier. Given a claim and whatever context
-is available, it predicts one of:
+> **Learn Depth — Problem ML-T2-061:** Detecting Claims That Require External Verification
+
+> **Research Question:** Can an NLP system recognize when a claim cannot responsibly be accepted without external evidence?
+
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-VeriScope_AI-black?style=for-the-badge)](https://veriscope-ai-1.onrender.com/)
+[![GitHub](https://img.shields.io/badge/💻_GitHub-Source_Code-black?style=for-the-badge&logo=github)](https://github.com/rohanbhowm25308/VeriScope-AI)
+
+---
+
+##  What is VeriScope AI?
+
+**VeriScope AI** is an NLP and Machine Learning research prototype designed to identify claims that require external verification before they can be responsibly accepted.
+
+Unlike conventional fake-news or truth-detection systems, VeriScope AI **does not attempt to declare a claim simply "True" or "False."**
+
+Instead, it answers a more practical question:
+
+> **"Does this claim have enough available context and evidence to be responsibly accepted?"**
+
+The system analyzes claims using linguistic signals, TF-IDF representations, machine-learning models, context sufficiency, uncertainty estimation, risk scoring, evidence retrieval, conflict detection, and human-review routing.
+
+---
+
+##  Core Concept
+
+```text
+                    USER INPUT
+                        │
+                        ▼
+              ┌───────────────────┐
+              │  Claim Extraction │
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Claim Classification│
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Context Analysis  │
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Uncertainty + Risk│
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Evidence Retrieval│
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Conflict Detection│
+              └─────────┬─────────┘
+                        ▼
+              ┌───────────────────┐
+              │ Human Review Queue│
+              └───────────────────┘
+```
+
+---
+
+# ✨ Key Features
+
+###  Intelligent Claim Extraction
+- Sentence segmentation
+- Claimability filtering
+- Opinion/question/belief detection
+- Compound-claim decomposition
+- Claim complexity analysis
+
+###  Machine Learning Verification Routing
+- TF-IDF feature representation
+- Engineered linguistic features
+- Check-worthiness prediction
+- Multi-model classification
+- Model consensus and disagreement detection
+- Confidence estimation
+- AI abstention
+
+###  Evidence Intelligence
+- BM25 evidence retrieval
+- TF-IDF similarity
+- Evidence ranking
+- Evidence windowing
+- Conflict detection
+- Evidence freshness analysis
+- Evidence intelligence scoring
+- Optional web-search evidence path
+
+###  Risk & Uncertainty Analysis
+- Context sufficiency score
+- Claim risk score
+- Temporal sensitivity
+- Claim type detection
+- Claim fingerprint
+- Adjustable verification threshold
+
+###  Human-in-the-Loop
+- Priority-based review queue
+- Reviewer feedback
+- Confidence and notes
+- Claim lifecycle tracking
+- Investigation roadmap
+- Counterfactual testing
+
+###  Research & Analytics
+- Verification dashboard
+- Model Comparison Laboratory
+- Error analysis
+- Feature importance
+- Retrieval benchmark
+- Research analytics
+- Reviewed-case export
+- Verification report generation
+
+---
+
+#  Verification Outcomes
 
 | Verdict | Meaning |
 |---|---|
-| 🟢 Context Sufficient | The claim can be responsibly assessed from the available signal |
-| 🟡 Needs Verification | Checkable in principle, but no supporting evidence is currently available |
-| 🔴 High Priority | Needs verification **and** carries elevated stakes |
-| 🛑 AI Abstains | Multi-condition check found the model's confidence too low to call — routed to human review |
-| ⏭️ Not a Claim | Filtered out as opinion, question, or personal belief before verification even runs |
+|  **Context Sufficient** | Available context provides enough signal for responsible assessment |
+|  **Needs Verification** | The claim is checkable but supporting evidence is currently unavailable |
+|  **High Priority** | The claim requires verification and has elevated risk/stakes |
+|  **AI Abstains** | Confidence is too low for an automated decision; routed to human review |
+|  **Not a Claim** | Filtered as an opinion, question, or personal belief before verification |
 
 ---
 
-## 1. Quick start (local)
+#  End-to-End Pipeline
+
+```text
+Text Input
+   │
+   ▼
+Sentence Segmentation
+   │
+   ▼
+Claimability Filtering
+   │
+   ▼
+Compound Claim Decomposition
+   │
+   ▼
+Complexity Analysis
+   │
+   ▼
+Linguistic Feature Engineering
+   │
+   ├── TF-IDF
+   ├── Linguistic Signals
+   └── Check-Worthiness Score
+   │
+   ▼
+Hybrid ML + Rule-Based Decision
+   │
+   ▼
+AI Abstention / Confidence Analysis
+   │
+   ▼
+Context Sufficiency
+   │
+   ▼
+Risk Scoring + Claim Fingerprint
+   │
+   ▼
+Multi-Model Consensus
+   │
+   ▼
+Evidence Retrieval
+   │
+   ├── BM25
+   ├── TF-IDF Similarity
+   └── Optional Web Search
+   │
+   ▼
+Conflict Detection
+   │
+   ▼
+Human Review / Investigation Roadmap
+```
+
+---
+
+#  Machine Learning Architecture
+
+VeriScope AI uses a combination of classical NLP, machine learning, and rule-based reasoning.
+
+### Feature Representation
+
+```text
+                    Claim Text
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+          TF-IDF          Engineered Features
+              │                   │
+              └─────────┬─────────┘
+                        ▼
+                 ML Classifiers
+                        │
+                        ▼
+              Consensus + Rules
+                        │
+                        ▼
+                Final Routing
+```
+
+### Models
+
+- Logistic Regression
+- Random Forest
+- Linear SVM
+- Multinomial Naive Bayes
+- LSA/SVD baseline
+- Optional transformer-based experiment
+
+The system also includes a dedicated **binary check-worthiness model** trained using real CheckThat! data.
+
+---
+
+#  Evaluation
+
+The current research implementation reports:
+
+| Evaluation | Result |
+|---|---:|
+| Binary Check-Worthiness ROC-AUC | ~0.74 |
+| Binary Check-Worthiness PR-AUC | ~0.09 |
+| 3-Class Linear SVM CV F1 Macro | ~0.76 ± 0.05 |
+| Held-Out Test Accuracy | ~0.74 |
+| Retrieval Precision@3 | 0.95 |
+| Retrieval Recall@3 | 0.95 |
+
+The retrieval benchmark was evaluated using a hand-labeled set of 20 cases.
+
+---
+
+#  Dataset
+
+## Real Dataset
+
+**CLEF CheckThat! 2019**
+
+- Approximately 17,600 sentences
+- US presidential debates and speeches
+- 2016–2019 data
+- Human-annotated
+- Check-worthy vs. non-check-worthy labels
+- Used to train the dedicated binary check-worthiness model
+
+## Synthetic Seed Dataset
+
+- 175 examples
+- Roughly balanced across the three fine-grained verification categories
+- Programmatically authored
+- Covers difficult cases including:
+  - Compound claims
+  - Temporal claims
+  - Conditional claims
+  - Implicit claims
+
+> The synthetic dataset is documented as a weak-supervision placeholder for a future fully human-annotated 3-way corpus.
+
+---
+
+# 🔬 Evidence Intelligence
+
+VeriScope AI does not stop after classifying a claim.
+
+It attempts to determine **what evidence should be examined next**.
+
+### Evidence Pipeline
+
+```text
+Available Context
+      │
+      ▼
+Evidence Candidate Generation
+      │
+      ▼
+BM25 / Similarity Ranking
+      │
+      ▼
+Relevant Evidence Selection
+      │
+      ▼
+Atomic Sentence Comparison
+      │
+      ▼
+Conflict Detection
+      │
+      ▼
+Evidence Strength
+      │
+      ▼
+Human Investigation
+```
+
+The system can identify conflicting numerical values, contradictory statements, and other evidence inconsistencies.
+
+---
+
+#  AI Abstention
+
+One of the central research ideas behind VeriScope AI is:
+
+> **An AI system should be able to say "I don't have enough confidence to make this call."**
+
+Instead of forcing every claim into a definitive category, VeriScope AI can abstain when multiple conditions indicate insufficient confidence.
+
+Abstention can consider:
+
+- Model confidence
+- Context sufficiency
+- Evidence availability
+- Model disagreement
+- Claim complexity
+- Risk level
+
+The uncertain case is then routed toward human investigation.
+
+---
+
+#  Model Comparison Laboratory
+
+The application includes a dedicated model comparison environment where different classical ML approaches can be evaluated using the same feature representation.
+
+It provides:
+
+- Test accuracy
+- Precision
+- Recall
+- F1 score
+- Cross-validation results
+- Error analysis
+- Feature importance
+- Model disagreement
+- Check-worthiness model comparison
+
+This makes the project not only an application, but also an **experimental ML research platform**.
+
+---
+
+#  Research Analytics Dashboard
+
+The Research Analytics Dashboard tracks:
+
+- Stored claim history
+- Reviewer feedback
+- Verification outcomes
+- Feature importance
+- Retrieval benchmark results
+- Model behavior
+- Human-review activity
+- Research statistics
+
+Reviewed cases can also be exported for future retraining and experimentation.
+
+---
+
+#  Human-in-the-Loop Architecture
+
+```text
+                 AI ANALYSIS
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+      High Risk              Low Confidence
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+              Human Review Queue
+                      │
+             ┌────────┴────────┐
+             ▼                 ▼
+        Reviewer Notes     Feedback
+             │                 │
+             └────────┬────────┘
+                      ▼
+              Research Analytics
+                      │
+                      ▼
+               Future Retraining
+```
+
+---
+
+#  Technology Stack
+
+## Backend
+- Python
+- Flask
+- Flask-CORS
+- Gunicorn
+- SQLite
+
+## Machine Learning
+- Scikit-learn
+- TF-IDF
+- Linear SVM
+- Logistic Regression
+- Random Forest
+- Multinomial Naive Bayes
+- LSA/SVD
+
+## NLP & Evidence
+- NLP preprocessing
+- Regex/rule-based claim extraction
+- BM25
+- TF-IDF similarity
+- Evidence ranking
+- Conflict detection
+
+## Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+## Deployment
+- GitHub
+- Render
+- Optional external/web-search integration
+
+```
+
+---
+
+#  Run Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/rohanbhowm25308/VeriScope-AI.git
+cd VeriScope-AI
+```
+
+### 2. Navigate to Backend
 
 ```bash
 cd backend
-pip install -r requirements.txt --break-system-packages   # or use a venv
-cp .env.example .env                       # optional: add GROQ_API_KEY
-python3 app.py                             # serves at http://localhost:5000
 ```
 
-Models are pre-trained and included (`backend/models/*.pkl`). To regenerate from scratch:
+### 3. Create a Virtual Environment
+
 ```bash
-python3 data/prepare_checkthat_data.py
-python3 data/build_seed_dataset_v2.py
-# then merge seed_claims.csv + seed_claims_v2.csv into seed_claims_combined.csv
-python3 train_checkworthy_model.py
-python3 train_models.py
-python3 eval_retrieval_methods.py
+python -m venv venv
 ```
 
-## 2. Deployment (Render + Netlify)
+### 4. Activate the Environment
 
-This project is set up for a split deployment: **Render** hosts the Flask backend,
-**Netlify** hosts the static frontend.
+### Windows
 
-**Render:** Root Directory = `backend`, Build Command = `pip install -r requirements.txt`,
-Start Command = `gunicorn app:app`. Add `GROQ_API_KEY` (optional) and `PYTHON_VERSION=3.12.3`
-as environment variables.
+```bash
+venv\Scripts\activate
+```
 
-**Netlify:** Base/Publish Directory = `frontend`, no build command (plain HTML/CSS/JS).
+### Linux / macOS
 
-**`frontend/app.js` auto-detects environment** (see the top of the file): on `localhost` or on
-the Render domain itself, it uses relative API calls; on a `*.netlify.app` domain, it calls the
-Render backend directly via `RENDER_API_URL`. Update that constant if your Render URL changes.
+```bash
+source venv/bin/activate
+```
+
+### 5. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Configure Environment Variables
+
+```bash
+cp .env.example .env
+```
+
+Add the optional API configuration if required.
+
+### 7. Start the Application
+
+```bash
+python app.py
+```
+
+The application will be available at:
+
+```text
+http://localhost:5000
+```
 
 ---
 
-## 3. Pipeline
+#  Retraining Models
 
-```
-Text -> Sentence segmentation -> Claimability filter (opinion/question/belief vs. verifiable claim)
-     -> Compound-claim decomposition -> Complexity analysis
-     -> Linguistic feature engineering (17 signals + TF-IDF + real check-worthiness score)
-     -> Hybrid ML + rule-based verdict (multi-condition abstention)
-     -> Context-sufficiency scoring -> Risk scoring & claim fingerprint
-     -> Multi-model consensus (4 classifiers voted, disagreement flagged)
-     -> Evidence retrieval (BM25 + stemming + windowing) + conflict detection + debate view
-        [+ optional Groq web-search evidence, with automatic fallback if the live tool call fails]
-     -> Human review routing / investigation roadmap / counterfactual testing
+The repository contains scripts for rebuilding the datasets and models.
+
+```bash
+python data/prepare_checkthat_data.py
+python data/build_seed_dataset_v2.py
+python train_checkworthy_model.py
+python train_models.py
+python eval_retrieval_methods.py
 ```
 
-| File | Responsibility |
-|---|---|
-| `features.py` | Sentence splitting, compound decomposition, claimability filter, complexity analyzer |
-| `data/prepare_checkthat_data.py` | Processes the real CLEF CheckThat! 2019 dataset |
-| `data/build_seed_dataset_v2.py` | Builds the balanced synthetic 3-way seed set (175 examples) |
-| `train_checkworthy_model.py` | Trains the binary check-worthiness model on real data |
-| `train_models.py` | Trains + compares 5 models (incl. LSA baseline), saves all 4 for consensus |
-| `train_models_transformer_experiment.py` | Optional real-transformer comparison (needs internet) |
-| `eval_retrieval_methods.py` | Hand-labeled Precision@K/Recall@K benchmark for retrieval methods |
-| `claim_analyzer.py` | Runtime inference: verdict, abstention, fingerprint, consensus, complexity |
-| `evidence_engine.py` | BM25 retrieval, conflict detection, debate view, freshness, web-search fallback |
-| `counterfactual.py` | Controlled claim perturbations for robustness testing |
-| `groq_client.py` | Chatbot + "AI second opinion" (optional, degrades gracefully) |
-| `storage.py` | SQLite history, review queue, feedback, lifecycle tracking, research stats |
-| `report_generator.py` | Downloadable HTML verification report |
-| `app.py` | Flask REST API + static file serving + CORS |
+An optional transformer experiment is also included:
+
+```bash
+python train_models_transformer_experiment.py
+```
 
 ---
 
-## 4. Dataset & documentation
+#  Deployment
 
-**Real data:** ~17,600 sentences from CLEF CheckThat! 2019 (US presidential debates/speeches,
-2016–2019), professionally fact-checked. License: free for research use. Trains a dedicated
-binary check-worthiness model whose output is blended into the 3-way classifier as a feature.
+The project is deployed using GitHub and Render.
 
-**Synthetic data:** 175 balanced examples (53/63/59 across the three labels), programmatically
-authored to cover every difficulty case the problem statement names (compound, temporal,
-conditional, implicit). Documented weak-supervision placeholder — see Section 8.
+### Live Application
 
-## 5. Evaluation
+https://veriscope-ai-1.onrender.com/
 
-Binary check-worthiness model (real data): ROC-AUC ~0.74, PR-AUC ~0.09 (vs ~0.025 random
-baseline — a ~3.7x lift). Modest in absolute terms, consistent with published CheckThat!
-leaderboard results for this genuinely hard, ~2.5%-positive-class task.
+### Source Code
 
-3-way classifier (5-fold CV): Linear SVM best at ~0.76±0.05 CV F1 macro, ~0.74 held-out test
-accuracy. TF-IDF+LSA dense embedding baseline underperforms (~0.56) — expected at this dataset
-size; sparse+engineered features win over dense embeddings with n~175.
+https://github.com/rohanbhowm25308/VeriScope-AI
 
-Retrieval benchmark (hand-labeled, n=20): TF-IDF, BM25, and LSA-semantic-proxy all score
-Precision@3/Recall@3 = 0.95 after fixing two real bugs found during development (see Section 6).
+For a Render deployment, the Flask backend can be configured with:
 
-## 6. Real bugs found and fixed during development
+```text
+Root Directory: backend
+Build Command: pip install -r requirements.txt
+Start Command: gunicorn app:app
+```
 
-1. **BM25 negative-IDF collapse on small candidate pools:** every score came out negative
-   regardless of relevance, silently dropping correct matches. Fixed by flooring per-term IDF.
-2. **Stopword false-positive matches:** two unrelated sentences scored as a "Strong 90%" match
-   purely because they shared the word "the." Fixed by filtering stopwords before BM25 indexing
-   and requiring genuine minimum term overlap.
-3. **Windowed-evidence conflict masking:** a 2-sentence window containing both "95%" and "70%"
-   shared a number with each side of a real conflict, hiding it. Fixed by decomposing windows
-   back to atomic sentences before comparing.
-4. **`groq/compound` decommissioned (2026-09-21):** the web-search feature's underlying model was
-   retired by Groq. Migrated to the `browser_search` tool on `openai/gpt-oss-120b`, with an
-   automatic fallback to a plain (non-tool) chat completion if the tool call fails for any
-   reason — so the feature degrades gracefully instead of surfacing a raw API error.
+---
 
-## 7. Why classical ML, and the transformer/embedding path
+#  Engineering Challenges
 
-TF-IDF + engineered features keeps the project zero-cost, offline-capable, and every decision
-explainable. A self-contained LSA/SVD dense-embedding baseline is run and compared (Section 5).
-Real pretrained transformer embeddings need `huggingface.co` access this dev sandbox couldn't
-reach — `train_models_transformer_experiment.py` provides a real, working, guarded path for a
-machine with normal internet access.
+During development, several real-world issues were identified and fixed.
 
-## 8. Known limitations & future work
+### 1. BM25 Negative-IDF Problem
 
-- The 3-way seed dataset (n~175) is weakly-labeled/programmatically generated, though balanced
-  and blended with a real-data feature. A human-annotated 3-way corpus is the top future priority.
-- Check-worthiness model precision/recall is modest — expected for this hard, imbalanced task.
-- Local evidence retrieval is scoped to user-supplied context; the optional Groq web-search path
-  is the route to broader knowledge, and now degrades gracefully rather than erroring out.
-- Claim-relationship graphs, claim-change-tracker versioning, and PDF/DOCX upload are not
-  implemented.
-- SQLite resets on every Render redeploy (ephemeral filesystem on the free tier) — fine for a
-  demo, not for long-term persistence without adding a real hosted database.
+Small candidate pools caused BM25 scores to become negative and hide relevant evidence.
 
-## 9. Feature coverage
+**Solution:** Per-term IDF flooring was introduced.
 
-Implemented and tested: claim extraction, compound decomposition, claimability filter, complexity
-analyzer, verification-requirement predictor (3-way + abstain, blended with real data),
-confidence/context/risk scores, claim-type/temporal detection, BM25 evidence retrieval with
-strength meter, conflict detector, evidence debate view, evidence freshness (honest "unknown"
-without a date), evidence intelligence score (explicitly heuristic), claim highlighting,
-verification + research analytics dashboards, priority-based human review queue with
-confidence/notes, claim lifecycle tracker, AI abstention mode, adjustable verification threshold,
-model comparison lab (5 models + real check-worthiness model + feature importance), model
-consensus/disagreement flagging, claim fingerprint (radar chart), counterfactual testing, claim
-history, AI-generated verification report, document verifiability score, investigation roadmap,
-CSV export for retraining, optional Groq chat/AI-review/web-search-with-fallback.
+### 2. Stopword False Positives
 
-Deliberately simplified or left as future work: full claim-relationship graph visualization,
-claim-change-tracker versioning over time, PDF/DOCX upload.
+Unrelated sentences could receive strong similarity scores simply because they shared common words.
+
+**Solution:** Stopwords were removed before BM25 indexing and minimum genuine term overlap was required.
+
+### 3. Evidence Window Conflict Masking
+
+Evidence windows containing contradictory numerical values could hide the underlying conflict.
+
+**Solution:** Evidence windows were decomposed back into atomic sentences before conflict comparison.
+
+### 4. External Search Integration
+
+The external web-search integration required migration after the underlying Groq model used by the earlier implementation was retired.
+
+The project now uses a graceful fallback architecture rather than exposing a raw API failure.
+
+---
+
+#  Known Limitations
+
+VeriScope AI is a research prototype, not a production-grade fact-checking authority.
+
+Current limitations include:
+
+- The fine-grained 3-way dataset contains approximately 175 weakly labeled/programmatically generated examples.
+- The check-worthiness model has modest precision/recall because the underlying task is highly imbalanced and difficult.
+- Local evidence retrieval depends on the context supplied by the user.
+- Claim extraction uses lightweight regex/rule-based processing rather than a dependency parser.
+- Full claim-relationship graph visualization is not yet implemented.
+- Claim-change tracking/versioning is future work.
+- PDF/DOCX upload is not currently implemented.
+- SQLite persistence on the free Render environment is not suitable for long-term production storage.
+
+---
+
+#  What Makes VeriScope AI Different?
+
+### 1. It Does Not Pretend to Know Everything
+
+Instead of forcing a True/False answer, the system can identify uncertainty and abstain.
+
+### 2. It Focuses on Verification Routing
+
+The goal is to determine:
+
+```text
+What should be accepted?
+What needs evidence?
+What needs urgent investigation?
+What should be reviewed by a human?
+```
+
+### 3. It Combines ML + Explainable Rules
+
+The system combines:
+
+```text
+Machine Learning
+        +
+Linguistic Features
+        +
+Context Analysis
+        +
+Risk Scoring
+        +
+Evidence Retrieval
+        +
+Conflict Detection
+        +
+Human Review
+```
+
+### 4. It Includes an Actual Research Workflow
+
+The project includes:
+
+- Model comparison
+- Error analysis
+- Retrieval benchmarking
+- Feature importance
+- Counterfactual testing
+- Reviewer feedback
+- Research analytics
+- Verification reports
+
+---
+
+# 🎓 Internship / Problem Information
+
+**Program:** Advanced Machine Learning Internship  
+**Organization:** Learn Depth Academy LLP  
+**Problem ID:** ML-T2-061  
+**Problem:** Detecting Claims That Require External Verification  
+**Domain:** NLP · Misinformation Research  
+**Level:** Advanced  
+**Project:** VeriScope AI
+
+### Research Question
+
+> **Can an NLP system recognize when a claim cannot responsibly be accepted without external evidence?**
+
+---
+
+#  Project Links
+
+### 🚀 Live Demo
+https://veriscope-ai-1.onrender.com/
+
+### 💻 GitHub Repository
+https://github.com/rohanbhowm25308/VeriScope-AI
+
+---
+
+# 👨‍💻 Developer
+
+**Rohan Bhowmik**
+
+B.Tech Computer Science & Engineering
+
+### Areas of Interest
+
+- Artificial Intelligence
+- Machine Learning
+- Data Science
+- Natural Language Processing
+- Generative AI
+- Web Development
+- Python
+- Explainable AI
+
+---
+
+#  Feedback & Contribution
+
+If you explore VeriScope AI, feedback is welcome.
+
+Ideas, research suggestions, model improvements, retrieval strategies, and usability feedback can help improve the system further.
+
+If you find the project interesting, consider giving the repository a ⭐ on GitHub.
+
+---
+
+#  Disclaimer
+
+VeriScope AI is an experimental research prototype designed to assist with claim auditing and verification routing.
+
+It does **not** establish objective truth or falsehood and should not be treated as an authoritative fact-checking system.
+
+Its recommendations should be interpreted as signals for further investigation and, where appropriate, human review.
+
+---
+
+<div align="center">
+
+###  VeriScope AI
+
+**"Don't just ask whether a claim is true. Ask whether you have enough evidence to accept it."**
+
+Built with Python • NLP • Machine Learning • Evidence Intelligence
+
+**Developed by Rohan Bhowmik**
+
+</div>
