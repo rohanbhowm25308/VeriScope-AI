@@ -649,16 +649,6 @@ The project includes:
 
 ---
 
-#  Project Links
-
-### 🚀 Live Demo
-https://veriscope-ai-1.onrender.com/
-
-### 💻 GitHub Repository
-https://github.com/rohanbhowm25308/VeriScope-AI
-
----
-
 # 👨‍💻 Developer
 
 **Rohan Bhowmik**
