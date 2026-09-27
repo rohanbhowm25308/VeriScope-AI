@@ -1,0 +1,152 @@
+{
+  "context_sufficient": [
+    {
+      "term": "stable_fact_hint_count",
+      "weight": 1.0915
+    },
+    {
+      "term": "sides",
+      "weight": 0.9625
+    },
+    {
+      "term": "ocean",
+      "weight": 0.8667
+    },
+    {
+      "term": "step",
+      "weight": 0.8587
+    },
+    {
+      "term": "reduces",
+      "weight": 0.7773
+    },
+    {
+      "term": "new",
+      "weight": -0.7445
+    },
+    {
+      "term": "human",
+      "weight": 0.7301
+    },
+    {
+      "term": "africa",
+      "weight": 0.6871
+    },
+    {
+      "term": "river",
+      "weight": 0.6654
+    },
+    {
+      "term": "future_marker_count",
+      "weight": -0.6382
+    },
+    {
+      "term": "energy",
+      "weight": 0.6315
+    },
+    {
+      "term": "implicit_causal_count",
+      "weight": -0.5584
+    }
+  ],
+  "high_priority": [
+    {
+      "term": "future_marker_count",
+      "weight": 1.2657
+    },
+    {
+      "term": "superlative_count",
+      "weight": 0.9473
+    },
+    {
+      "term": "eliminates need",
+      "weight": 0.8196
+    },
+    {
+      "term": "eliminates",
+      "weight": 0.8196
+    },
+    {
+      "term": "ocean",
+      "weight": -0.721
+    },
+    {
+      "term": "rate",
+      "weight": 0.7206
+    },
+    {
+      "term": "percent",
+      "weight": 0.6996
+    },
+    {
+      "term": "lost",
+      "weight": 0.6962
+    },
+    {
+      "term": "n_words",
+      "weight": 0.6937
+    },
+    {
+      "term": "funding secured",
+      "weight": -0.6858
+    },
+    {
+      "term": "is_health",
+      "weight": 0.6161
+    },
+    {
+      "term": "is_financial",
+      "weight": 0.5834
+    }
+  ],
+  "needs_verification": [
+    {
+      "term": "superlative_count",
+      "weight": -0.9704
+    },
+    {
+      "term": "present_temporal_count",
+      "weight": 0.9652
+    },
+    {
+      "term": "new",
+      "weight": 0.9512
+    },
+    {
+      "term": "sides",
+      "weight": -0.9229
+    },
+    {
+      "term": "stable_fact_hint_count",
+      "weight": -0.8701
+    },
+    {
+      "term": "city",
+      "weight": 0.8411
+    },
+    {
+      "term": "future_marker_count",
+      "weight": -0.8321
+    },
+    {
+      "term": "has_conjunction_split",
+      "weight": 0.8123
+    },
+    {
+      "term": "reported",
+      "weight": 0.69
+    },
+    {
+      "term": "human",
+      "weight": -0.6634
+    },
+    {
+      "term": "interface",
+      "weight": 0.6489
+    },
+    {
+      "term": "team",
+      "weight": 0.6385
+    }
+  ]
+}

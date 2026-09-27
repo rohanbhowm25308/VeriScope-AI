@@ -1,0 +1,22 @@
+# Secrets -- never commit these
+backend/.env
+.env
+
+# Runtime database (regenerated automatically, shouldn't be in git)
+backend/data/veriscope.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+venv/
+env/
+.venv/
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
+*.swp

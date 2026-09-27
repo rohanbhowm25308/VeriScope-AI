@@ -1,0 +1,59 @@
+{
+  "n_errors": 9,
+  "errors": [
+    {
+      "claim": "Vaccines work by training the immune system to recognize pathogens.",
+      "true_label": "context_sufficient",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "The new regulation crushed small farmers' profits.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "If the drought continues, crop yields may decline sharply.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Conditional/hedged language misread"
+    },
+    {
+      "claim": "A budget deficit occurs when spending exceeds revenue.",
+      "true_label": "context_sufficient",
+      "predicted_label": "high_priority",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "The school's graduation rate rose by 5 percent this year.",
+      "true_label": "needs_verification",
+      "predicted_label": "high_priority",
+      "error_category": "Numerical claim error (statistical stakes misjudged)"
+    },
+    {
+      "claim": "The stock market consists of exchanges where shares are traded.",
+      "true_label": "context_sufficient",
+      "predicted_label": "high_priority",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "The company's decision clearly destroyed investor confidence.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "The data breach eroded customer trust in the platform.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Ambiguous language / insufficient lexical signal"
+    },
+    {
+      "claim": "If the trend continues, the lake could dry up within a decade.",
+      "true_label": "high_priority",
+      "predicted_label": "needs_verification",
+      "error_category": "Conditional/hedged language misread"
+    }
+  ]
+}
