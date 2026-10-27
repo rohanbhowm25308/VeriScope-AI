@@ -512,28 +512,6 @@ python train_models_transformer_experiment.py
 
 ---
 
-#  Deployment
-
-The project is deployed using GitHub and Render.
-
-### Live Application
-
-https://veriscope-ai-1.onrender.com/
-
-### Source Code
-
-https://github.com/rohanbhowm25308/VeriScope-AI
-
-For a Render deployment, the Flask backend can be configured with:
-
-```text
-Root Directory: backend
-Build Command: pip install -r requirements.txt
-Start Command: gunicorn app:app
-```
-
----
-
 #  Engineering Challenges
 
 During development, several real-world issues were identified and fixed.
